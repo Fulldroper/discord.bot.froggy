@@ -215,7 +215,7 @@
   bot.on("messageCreate", async function(msg) {
     // console.log(msg.author.username, msg.content);
     // only owner mode
-    if (msg.author.id !== process.env.OWNER) return
+    // if (msg.author.id !== process.env.OWNER) return
     // skip self and bots
     if (msg.author.id === bot.user.id || msg.author.bot) return;
     // check mention and clear content    
