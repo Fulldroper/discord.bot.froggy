@@ -235,9 +235,11 @@
     };
     // check if can`t join
     console.log([...ch.members.keys()].includes(this.user.id), busy);
-    if ((![...ch.members.keys()].includes(this.user.id) && busy !== false) || !ch.joinable || !(ch.members.size < (ch.userLimit || 99))) {
-      msg.reply("Я не можу зайти до тебе 🙃")
-      return
+    if (!ch.joinable || !(ch.members.size < (ch.userLimit || 99))) {
+      if (![...ch.members.keys()].includes(this.user.id)) {
+        msg.reply("Я не можу зайти до тебе 🙃")
+        return
+      }
     };
     // check if not busy
     if (!['pause','play', 'ready', false].includes(busy) && (busyID || busyID == ch.id)) {
