@@ -234,6 +234,7 @@
       return
     };
     // check if can`t join
+    console.log(ch.members.get(this.user.id), ch.members, [...ch.members.keys()]);
     if ((!ch.members.get(this.user.id) && busy !== false) || !ch.joinable || !(ch.members.size < (ch.userLimit || 99))) {
       msg.reply("Я не можу зайти до тебе 🙃")
       return
