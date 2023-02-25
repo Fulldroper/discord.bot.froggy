@@ -234,8 +234,8 @@
       return
     };
     // check if can`t join
-    console.log(ch.members[this.user.id], ch.members.get(this.user.id),);
-    if (!ch.joinable || !(ch.members.size < (ch.userLimit || 99))) {
+    // console.log(ch.members[this.user.id], ch.members.get(this.user.id),);
+    if (!ch.members.get(this.user.id) || !ch.joinable || !(ch.members.size < (ch.userLimit || 99))) {
       msg.reply("Я не можу зайти до тебе 🙃")
       return
     };
@@ -257,7 +257,7 @@
       allCommands+= `\`${command}\`: ${commandsLib[command].toString()}\n`
     }
     // send list of command
-    msg.reply(`🐸 Я реагую на наступні команди 👀\n\n${allCommands}\n\nМожеш мене називати ${mentionLib.join(", ")}`)
+    msg.reply(`🐸 Я реагую на наступні команди 👀\n\n${allCommands}Можеш мене називати ${mentionLib.join(", ")}`)
   });
   // auth
   bot.login(process.env.TOKEN);
